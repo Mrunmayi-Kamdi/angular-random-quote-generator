@@ -5,13 +5,13 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class QuoteService {
-
-  constructor(private http: Http) { }
+	url: string = 'https://talaikis.com/api/quotes/random/';
+	constructor(private http: Http) { }
 
 
   getRandomQuote(){
     return this.http
-                .get('https://talaikis.com/api/quotes/random/')
+                .get(url)
                 .map(response => response.json());
   }
 }
